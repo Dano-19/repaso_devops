@@ -5,10 +5,12 @@ FROM python:3.11-slim
 WORKDIR /app
 
 # Copiar dependencias y código
-COPY ..
+COPY requirements.txt .
 
 # Instalar Flask
 RUN pip install --no-cache-dir -r requirements.txt
+
+COPY ..
 
 # Exponer el puerto donde corre Flask
 EXPOSE 5000
