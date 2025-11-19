@@ -10,7 +10,7 @@ COPY requirements.txt .
 # Instalar Flask
 RUN pip install --no-cache-dir -r requirements.txt
 
-COPY ..
+COPY . .
 
 # Exponer el puerto donde corre Flask
 EXPOSE 5000
