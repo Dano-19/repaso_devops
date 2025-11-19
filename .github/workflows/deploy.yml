@@ -86,7 +86,7 @@ jobs:
           docker stack rm cristhian || true 
 
           echo "descargando la imagen del GHCR"
-          docker pull ghcr.io/dano-19/despliegue:1.0.0
+          docker pull ghcr.io/dano-19/repaso:1.0.0
 
           echo "despliegue stack"
           docker stack deploy -c stack.yml --with-registry-auth cristhian
