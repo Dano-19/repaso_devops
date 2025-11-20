@@ -81,16 +81,23 @@ jobs:
         port: ${{ secrets.VPS_SSH_PORT }}
         script: |
           #echo "desplegando servicios"
-        
-          #echo "borrar el stack siempre"
-          #docker stack rm cristhian || true 
+          cd /home/1727513135/despliegue
+          cd ~/despliegue
 
+          # paso 1 descargar la imagen
           #echo "descargando la imagen del GHCR"
           echo "${{ secrets.GHCR_PAT }}" | docker login ghcr.io -u dano-19 --password-stdir
           docker pull ghcr.io/dano-19/repaso:1.0.0
 
+          # paso 2 borrar el stack
+          #echo "borrar el stack siempre"
+          docker stack rm cristhian || true 
+
+          sleep 30
+
+          # despliegue de los servicios
           #echo "despliegue stack"
-          #docker stack deploy -c stack.yml --with-registry-auth cristhian
+          docker stack deploy -c stack.yml --with-registry-auth cristhian
          
         
         
