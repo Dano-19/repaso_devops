@@ -2,7 +2,7 @@ version: '3.8'
 
 services:
   cardenas:
-    image: 
+    image: ghcr.io/dano-19/repaso:1.0.0
     deploy:
       replicas: 1
       resources:
